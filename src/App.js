@@ -12,6 +12,7 @@ import Signup from './components/signUp/signUp.js';
 import AddCoin from './components/addCoin/addCoin.js';
 import LogIn from './components/logIn/login.js';
 import Main from './components/Main/main.js';
+import AddCoinAlert from './components/alerts/addCoinAlert/addCoinAlert.js';
 
 
 
@@ -19,6 +20,8 @@ import Main from './components/Main/main.js';
 function App() {
   return (
     <Routes>
+        <Route path='/test' element={<AddCoinAlert />}>
+        </Route>
 
         <Route path='/' element={<Main />}>    
         </Route>

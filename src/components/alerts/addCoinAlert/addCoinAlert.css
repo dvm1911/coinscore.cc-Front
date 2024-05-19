@@ -1,0 +1,22 @@
+.addCoinAlertOuter{
+    gap: 8px;
+    width: 680px;
+    height: 248px;
+    flex-shrink: 0;
+    border-radius: 18px;
+    background: #252836;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 200% */
+}
+
+.addCoinAlertOuter>img{
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
