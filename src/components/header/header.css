@@ -6,6 +6,12 @@
     align-items: center;
     }
     
+    .noDec{
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+    }
+
     .headMain{
         flex-grow: 1;
         align-items: center;

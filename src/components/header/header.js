@@ -13,15 +13,20 @@ import searchSym from './assets/Search.png'
 const Header = () => {
     return(
         <header>
+            
             <div className="head flex">
+                    
                 <div className="headMain flex">
+                <Link className='noDec flex' to={'/'}>
                         <div className="headLogo">
                             <img  src={coinScoreLogo} alt="coinscore_logo"/>
                         </div>
                         <div className="headName">
                             <h1>coinscore</h1>
                         </div>
-                    </div>
+                </Link>         
+                </div>
+                     
             
                 <div className="headListDiv">
                     <ul className="headListTag flex">
