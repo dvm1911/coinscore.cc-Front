@@ -13,9 +13,25 @@ import addImgLogo from './Plus.png'
 import webLogo from './Group 599.png'
 import Header from '../header/header'
 import Footer from '../footer/footer'
+import { useState } from 'react'
 
 
 const AddCoin = () => {
+    const [coinName, setcoinName] = useState('');
+    const [coinAcro, setcoinAcro] = useState('');
+    const [coinAddressBSC, setcoinAddressBSC] = useState('');
+    const [coinAddressETH, setcoinAddressETH] = useState('');
+    const [coinAddressTRC, setcoinAddressTRC] = useState('');
+    const [coinMarketCap, setcoinMarketCap] = useState('');
+    const [coinPrice, setcoinPrice] = useState('');
+    const [coinLaunchDate, setcoinLaunchDate] = useState('');
+    const [coinLogo, setcoinLogo] = useState('');
+    const [coinBanner, setcoinBanner] = useState('');
+    const [coinTwitter, setcoinTwitter] = useState('');
+    const [coinLogo, setcoinLogo] = useState('');
+    const [coinLogo, setcoinLogo] = useState('');
+    const [coinLogo, setcoinLogo] = useState('');
+    , , , , , , , , , coinInstagram, coinReddit, onPanCakeSwap, onBoggedFinance, onPooCoin, onCoingecko, isReviewed, isActive, isPromoted
     
 
     return(
