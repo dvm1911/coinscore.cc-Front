@@ -13,9 +13,10 @@ const TbodyRow = ({data}) => {
    } 
 
     return (
-        <Link className="noDec" to="/coininfo">
-        <tr>
-                    <td className="crypto flex">
+        
+        <tr>        
+                <Link className="noDec" to="/coininfo">
+                    <td className="crypto flex"> 
                         <div className="coinLogo">
                             <img src={coinLogo} alt="coin-logo"/>
                         </div>
@@ -24,8 +25,10 @@ const TbodyRow = ({data}) => {
                         </div>
                         <div className="coinAcro flex">
                             <p>{data.coinAcronym}</p>
-                        </div>
+                        </div>    
                     </td>
+                </Link>     
+                
                     <td className="marketCap flex">
                         <div className="coinValue">
                             <p>{`$` + data.coinMarketCap}</p>
@@ -52,7 +55,7 @@ const TbodyRow = ({data}) => {
                         </div>
                     </td>
         </tr>
-        </Link>
+        
            
     )
 }
