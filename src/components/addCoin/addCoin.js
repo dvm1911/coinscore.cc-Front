@@ -16,7 +16,8 @@ import Footer from '../footer/footer'
 
 import axios from 'axios'
 import { useState } from 'react'
-
+import { logoBannerDb } from '../firebaseConfig/firebaseConfig'
+import { ref, uploadBytes } from 'firebase/storage'
 
 const AddCoin = () => {
     const [coinName, setcoinName] = useState('');
@@ -28,37 +29,16 @@ const AddCoin = () => {
     const [coinPrice, setcoinPrice] = useState('');
     const [coinLaunchDate, setcoinLaunchDate] = useState('');
 
-    const [coinLogo, setcoinLogo] = useState('asf');
-    // const onFileUploadLogo = (e) => {
-    //     var reader = new FileReader();
-    //     reader.readAsDataURL(e.target.files[0]);
-    //     reader.onload = () => {
-    //         setcoinLogo(reader.result);
-    //         console.log(coinLogo)
-    //     };
-    //     reader.onerror = err => {
-    //         console.log("Error: ", err)
-    //     }
-    // }
-
-    const [coinBanner, setcoinBanner] = useState('dfg');
-    // const onFileUploadBanner = (e) => {
-    //     var reader = new FileReader();
-    //     reader.readAsDataURL(e.target.files[0]);
-    //     reader.onload = () => {
-    //         setcoinBanner(reader.result);
-    //     };
-    //     reader.onerror = err => {
-    //         console.log("Error: ", err)
-    //     }
-    // }
 
     const [coinTwitter, setcoinTwitter] = useState('');
     const [coinInstagram, setcoinInstagram] = useState('');
     const [coinReddit, setcoinReddit] = useState('');
     const [coinWebsite, setcoinWebsite] = useState('');
     const [coinYoutube, setcoinYoutube] = useState('');
-     
+    
+    const [coinLogo, setcoinLogo] = useState("");
+    const [coinBanner, setcoinBanner] = useState("");
+
 
     const [onPanCakeSwap, setonPanCakeSwap] = useState(false);
     const [onBoggedFinance, setonBoggedFinance] = useState(false);
@@ -143,7 +123,12 @@ const AddCoin = () => {
             {
                 console.log(`Couldn't make new coin ${err}`);
             }
+            
+            const logoRef = ref(logoBannerDb, `coins/${coinName}/logo`)
+            uploadBytes(logoRef, coinLogo);
 
+            const bannerRef = ref(logoBannerDb, `coins/${coinName}/banner`);
+            uploadBytes(bannerRef, coinBanner);
     }
 
     return(
@@ -156,45 +141,45 @@ const AddCoin = () => {
                     </div>
                     <div className="addCoinBody">
                         <form className="addCoinForm flex" action="/">
-                            <label className="addCoinLabelTxt" for="coinName">Coin Name</label>
+                            <label className="addCoinlabelTxt" for="coinName">Coin Name</label>
                             <input onChange={(e) => { setcoinName(e.target.value); console.log(coinName)}} className="addCoinInputField" type="text" id="coinName" placeholder="enter your coin name" />
 
-                            <label className="addCoinLabelTxt" for="coinAcro">Coin Acronym</label>
+                            <label className="addCoinlabelTxt" for="coinAcro">Coin Acronym</label>
                             <input onChange={(e) => { setcoinAcro(e.target.value)}} className="addCoinInputField" type="text" id="coinAcro" placeholder="enter your coin acronym" />
 
-                            <label className="addCoinLabelTxt" for="coinBSC">Address BSC</label>
+                            <label className="addCoinlabelTxt" for="coinBSC">Address BSC</label>
                             <input onChange={(e) => { setcoinAddressBSC(e.target.value)}} className="addCoinInputField" type="text" id="coinBSC" placeholder="enter your coin BSC address"/>
 
-                            <label className="addCoinLabelTxt" for="coinETH">Address ETH</label>
+                            <label className="addCoinlabelTxt" for="coinETH">Address ETH</label>
                             <input onChange={(e) => { setcoinAddressETH(e.target.value)}} className="addCoinInputField" type="text" id="coinETH" placeholder="enter your coin ETH adddress"/>
 
-                            <label className="addCoinLabelTxt" for="coinTRC">Address TRC</label>
+                            <label className="addCoinlabelTxt" for="coinTRC">Address TRC</label>
                             <input onChange={(e) => { setcoinAddressTRC(e.target.value)}} className="addCoinInputField" type="text" id="coinTRC" placeholder="enter your coin TRC address"/>
 
-                            <label className="addCoinLabelTxt" for="addCoinMC">Market Cap</label>
+                            <label className="addCoinlabelTxt" for="addCoinMC">Market Cap</label>
                             <input onChange={(e) => { setcoinMarketCap(e.target.value)}} className="addCoinInputField" type="text" id="addCoinMC" placeholder="What's your coin Market Cap"/>
 
-                            <label className="addCoinLabelTxt" for="coinPrice">Price</label>
+                            <label className="addCoinlabelTxt" for="coinPrice">Price</label>
                             <input onChange={(e) => { setcoinPrice(e.target.value)}} className="addCoinInputField" type="text" id="coinPrice" placeholder="what's the price of your coin"/>
 
-                            <label className="addCoinLabelTxt" for="coinLaunch">Launch Date</label>
+                            <label className="addCoinlabelTxt" for="coinLaunch">Launch Date</label>
                             <input onChange={(e) => { setcoinLaunchDate(e.target.value)}} className="addCoinInputField" type="text" id="coinLaunch" placeholder="enter your coin name"/>
 
                             <div className="addCoinDesc flex">
-                                <label className="addCoinLabelTxt" for="coinDescription">Description</label>
+                                <label className="addCoinlabelTxt" for="coinDescription">Description</label>
                                 <textarea id="coinDescription" className="coinDescTxt" placeholder="1800 chars (max)"></textarea>
                                 <div className="coinDescCounter flex">
                                     <p className="addCoinVarCounter">0/1800</p>
                                 </div>
                             </div>
 
-                            <label className="addCoinLabelTxt" for="addCoinLogo">Logo</label>
+                            <label className="addCoinlabelTxt" for="addCoinLogo">Logo</label>
                             <p className="addCoinLogoInfo">Recommended Size: 512 * 512 px or an image with dimesions in 1:1 ratio.</p>
 
                             <div className="addCoinLogoOuter flex">
                                 <div className="addCoinLogo flex">
                                     <div className="addCoinLogoUpload">
-                                        <input  className="addCoinLogoInp flex" id="addCoinLogo" type="file" accept="image/*"/>
+                                        <input onChange={(e)=>setcoinLogo(e.target.files[0])} className="addCoinLogoInp flex" id="addCoinLogo" type="file" accept="image/*"/>
                                         <img className="addCoinLogoInpSym" src={addImgLogo} alt="addFileLogo"/>
                                     </div>
                                     <div className="addCoinLogoUploadTxt">
@@ -204,11 +189,11 @@ const AddCoin = () => {
                             </div>
                             
 
-                            <label className="addCoinLabelTxt" for="addCoinBanner">Banner</label>
+                            <label className="addCoinlabelTxt" for="addCoinBanner">Banner</label>
                             <p className="addCoinBannerInfo">Recommended Size: 1920*1080 px (lanscape).</p>
                             <div className="addCoinBanner flex">
                                 <div className="addCoinBannerUpload">
-                                    <input  className="addCoinBannerInp" id="addCoinBanner" type="file" accept="image/*"/>
+                                    <input onChange={(e)=>setcoinBanner(e.target.files[0])} className="addCoinBannerInp" id="addCoinBanner" type="file" accept="image/*"/>
                                     <img className="addCoinLogoInpSym" src={addImgLogo} alt="addFileBanner"/>
                                 </div>
                                 <div className="addCoinLogoUploadTxt">
@@ -216,7 +201,7 @@ const AddCoin = () => {
                                 </div>
                             </div>
 
-                            <label className="addCoinLabelTxt" for="addCoinSocial">Your socials</label>
+                            <label className="addCoinlabelTxt" for="addCoinSocial">Your socials</label>
                             <span className="addCoinSocialTxt">attach link to your coin account socials</span>
 
                             <div className="addCoinSocialLogo flex align-center">
