@@ -28,6 +28,7 @@ const AddCoin = () => {
     const [coinMarketCap, setcoinMarketCap] = useState('');
     const [coinPrice, setcoinPrice] = useState('');
     const [coinLaunchDate, setcoinLaunchDate] = useState('');
+    const [coinDescription, setcoinDescription] = useState('')
 
 
     const [coinTwitter, setcoinTwitter] = useState('');
@@ -115,8 +116,7 @@ const AddCoin = () => {
     const onClickPost = async (e) => {
         e.preventDefault();
             try{
-                await axios.post("https://coinscore-cc-backend.onrender.com/api/collections/coins", { coinName, coinAcro, coinAddressBSC, coinAddressETH, coinAddressTRC, coinMarketCap, coinPrice, coinLaunchDate, coinLogo,
-                coinBanner, coinTwitter, coinInstagram, coinReddit, coinWebsite, coinYoutube, onPanCakeSwap, onBoggedFinance, onPooCoin, onCoingecko, isReviewed, isActive, isPromoted });
+                await axios.post("https://coinscore-cc-backend.onrender.com/api/collections/coins", { coinName, coinAcro, coinAddressBSC, coinAddressETH, coinAddressTRC, coinMarketCap, coinPrice, coinLaunchDate, coinDescription, coinTwitter, coinInstagram, coinReddit, coinWebsite, coinYoutube, onPanCakeSwap, onBoggedFinance, onPooCoin, onCoingecko, isReviewed, isActive, isPromoted });
                 console.log("New Coin Added")
             }
             catch(err)
@@ -167,7 +167,7 @@ const AddCoin = () => {
 
                             <div className="addCoinDesc flex">
                                 <label className="addCoinlabelTxt" for="coinDescription">Description</label>
-                                <textarea id="coinDescription" className="coinDescTxt" placeholder="1800 chars (max)"></textarea>
+                                <textarea onChange ={(e) => { setcoinDescription(e.target.value)}} id="coinDescription" className="coinDescTxt" placeholder="1800 chars (max)"></textarea>
                                 <div className="coinDescCounter flex">
                                     <p className="addCoinVarCounter">0/1800</p>
                                 </div>
