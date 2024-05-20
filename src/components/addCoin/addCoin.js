@@ -137,43 +137,43 @@ const AddCoin = () => {
                         <div className="addCoinOuter flex">
                     <div className="addCoinHead">
                         <h2 className="addCoinH2">Add your coin</h2>
-                        <p className="addCoinTxt">Fill this quick form, and our team will contact you shortly</p>
+                        <p className="addCoinTxt">Fill this quick namem, and our team will contact you shortly</p>
                     </div>
                     <div className="addCoinBody">
-                        <form className="addCoinForm flex" action="/">
-                            <label className="addCoinlabelTxt" for="coinName">Coin Name</label>
+                        <namem className="addCoinnamem flex" action="/">
+                            <label className="addCoinlabelTxt" name="coinName">Coin Name</label>
                             <input onChange={(e) => { setcoinName(e.target.value); console.log(coinName)}} className="addCoinInputField" type="text" id="coinName" placeholder="enter your coin name" />
 
-                            <label className="addCoinlabelTxt" for="coinAcro">Coin Acronym</label>
+                            <label className="addCoinlabelTxt" name="coinAcro">Coin Acronym</label>
                             <input onChange={(e) => { setcoinAcro(e.target.value)}} className="addCoinInputField" type="text" id="coinAcro" placeholder="enter your coin acronym" />
 
-                            <label className="addCoinlabelTxt" for="coinBSC">Address BSC</label>
+                            <label className="addCoinlabelTxt" name="coinBSC">Address BSC</label>
                             <input onChange={(e) => { setcoinAddressBSC(e.target.value)}} className="addCoinInputField" type="text" id="coinBSC" placeholder="enter your coin BSC address"/>
 
-                            <label className="addCoinlabelTxt" for="coinETH">Address ETH</label>
+                            <label className="addCoinlabelTxt" name="coinETH">Address ETH</label>
                             <input onChange={(e) => { setcoinAddressETH(e.target.value)}} className="addCoinInputField" type="text" id="coinETH" placeholder="enter your coin ETH adddress"/>
 
-                            <label className="addCoinlabelTxt" for="coinTRC">Address TRC</label>
+                            <label className="addCoinlabelTxt" name="coinTRC">Address TRC</label>
                             <input onChange={(e) => { setcoinAddressTRC(e.target.value)}} className="addCoinInputField" type="text" id="coinTRC" placeholder="enter your coin TRC address"/>
 
-                            <label className="addCoinlabelTxt" for="addCoinMC">Market Cap</label>
+                            <label className="addCoinlabelTxt" name="addCoinMC">Market Cap</label>
                             <input onChange={(e) => { setcoinMarketCap(e.target.value)}} className="addCoinInputField" type="text" id="addCoinMC" placeholder="What's your coin Market Cap"/>
 
-                            <label className="addCoinlabelTxt" for="coinPrice">Price</label>
+                            <label className="addCoinlabelTxt" name="coinPrice">Price</label>
                             <input onChange={(e) => { setcoinPrice(e.target.value)}} className="addCoinInputField" type="text" id="coinPrice" placeholder="what's the price of your coin"/>
 
-                            <label className="addCoinlabelTxt" for="coinLaunch">Launch Date</label>
+                            <label className="addCoinlabelTxt" name="coinLaunch">Launch Date</label>
                             <input onChange={(e) => { setcoinLaunchDate(e.target.value)}} className="addCoinInputField" type="text" id="coinLaunch" placeholder="enter your coin name"/>
 
                             <div className="addCoinDesc flex">
-                                <label className="addCoinlabelTxt" for="coinDescription">Description</label>
+                                <label className="addCoinlabelTxt" name="coinDescription">Description</label>
                                 <textarea onChange ={(e) => { setcoinDescription(e.target.value)}} id="coinDescription" className="coinDescTxt" placeholder="1800 chars (max)"></textarea>
                                 <div className="coinDescCounter flex">
                                     <p className="addCoinVarCounter">0/1800</p>
                                 </div>
                             </div>
 
-                            <label className="addCoinlabelTxt" for="addCoinLogo">Logo</label>
+                            <label className="addCoinlabelTxt" name="addCoinLogo">Logo</label>
                             <p className="addCoinLogoInfo">Recommended Size: 512 * 512 px or an image with dimesions in 1:1 ratio.</p>
 
                             <div className="addCoinLogoOuter flex">
@@ -189,7 +189,7 @@ const AddCoin = () => {
                             </div>
                             
 
-                            <label className="addCoinlabelTxt" for="addCoinBanner">Banner</label>
+                            <label className="addCoinlabelTxt" name="addCoinBanner">Banner</label>
                             <p className="addCoinBannerInfo">Recommended Size: 1920*1080 px (lanscape).</p>
                             <div className="addCoinBanner flex">
                                 <div className="addCoinBannerUpload">
@@ -201,7 +201,7 @@ const AddCoin = () => {
                                 </div>
                             </div>
 
-                            <label className="addCoinlabelTxt" for="addCoinSocial">Your socials</label>
+                            <label className="addCoinlabelTxt" name="addCoinSocial">Your socials</label>
                             <span className="addCoinSocialTxt">attach link to your coin account socials</span>
 
                             <div className="addCoinSocialLogo flex align-center">
@@ -234,8 +234,8 @@ const AddCoin = () => {
                                 <input onChange={(e) => { setcoinYoutube(e.target.value)}} className="addCoinSocialInp" type="text" id="addCoinSocialYoutube" placeholder="your youtube channle"/>
                             </div>
 
-                            <label className="addCoinListingHeading" for="addCoinListing">Listings</label>
-                            <span className="addCoinListingSpan">Please select all platforms where your coin is listed</span>
+                            <label className="addCoinListingHeading" name="addCoinListing">Listings</label>
+                            <span className="addCoinListingSpan">Please select all platf orms where your coin is listed</span>
 
                                 <div className="addCoinListing flex">
                                     <div className="addCoinListingOuter">
@@ -267,7 +267,7 @@ const AddCoin = () => {
                             
                             <button onClick={onClickPost} className="submitCoin">Submit Coin Info</button>
 
-                        </form>
+                        </namem>
                     </div>
                 </div>
             <Footer />
