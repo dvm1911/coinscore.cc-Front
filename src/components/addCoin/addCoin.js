@@ -13,6 +13,7 @@ import addImgLogo from './Plus.png'
 import webLogo from './Group 599.png'
 import Header from '../header/header'
 import Footer from '../footer/footer'
+import AddCoinAlert from '../alerts/addCoinAlert/addCoinAlert'
 
 import axios from 'axios'
 import { useState } from 'react'
@@ -45,9 +46,9 @@ const AddCoin = () => {
     const [onBoggedFinance, setonBoggedFinance] = useState(false);
     const [onPooCoin, setonPooCoin] = useState(false);
     const [onCoingecko, setonCoingecko] = useState(false);
-    const [isReviewed, setisReviewed] = useState(false);
-    const [isActive, setisActive] = useState(true);
-    const [isPromoted, setisPromoted] = useState(false);
+    const isReviewed = false;
+    const isActive = true;
+    const isPromoted = false;
 
 
 
@@ -56,7 +57,7 @@ const AddCoin = () => {
     const [txtColorCoinGecko, setTxtColorCoinGecko] = useState("#6B5DCC");
     const handleBtnCoinGecko = (e) => {
         e.preventDefault();
-        if(btnColorCoinGecko == "#303343"){
+        if(btnColorCoinGecko === "#303343"){
             setTxtColorCoinGecko("#D7D7D7");
             setBtnColorCoinGecko("#6B5DCC");
             setonCoingecko(!onCoingecko);
@@ -71,7 +72,7 @@ const AddCoin = () => {
       const [txtColorPanCakeSwap, setTxtColorPanCakeSwap] = useState("#6B5DCC");
       const handleBtnPanCakeSwap = (e) => {
         e.preventDefault();
-        if(btnColorPanCakeSwap == "#303343"){
+        if(btnColorPanCakeSwap === "#303343"){
             setTxtColorPanCakeSwap("#D7D7D7");
             setBtnColorPanCakeSwap("#6B5DCC");
             setonPanCakeSwap(!onPanCakeSwap);
@@ -86,7 +87,7 @@ const AddCoin = () => {
       const [txtColorBoggedFinance, setTxtColorBoggedFinance] = useState("#6B5DCC");
       const handleBtnBoggedFinance = (e) => {
         e.preventDefault();
-        if(btnColorBoggedFinance == "#303343"){
+        if(btnColorBoggedFinance === "#303343"){
             setTxtColorBoggedFinance("#D7D7D7");
             setBtnColorBoggedFinance("#6B5DCC");
             setonBoggedFinance(!onBoggedFinance);
@@ -101,7 +102,7 @@ const AddCoin = () => {
       const [txtColorPooCoin, setTxtColorPooCoin] = useState("#6B5DCC");
       const handleBtnPooCoin = (e) => {
         e.preventDefault();
-        if(btnColorPooCoin == "#303343"){
+        if(btnColorPooCoin === "#303343"){
             setTxtColorPooCoin("#D7D7D7");
             setBtnColorPooCoin("#6B5DCC");
             setonPooCoin(!onPooCoin);
@@ -112,6 +113,7 @@ const AddCoin = () => {
         }         
       };
 
+        const [showAlert, setshowAlert] = useState(false);
 
     const onClickPost = async (e) => {
         e.preventDefault();
@@ -129,6 +131,8 @@ const AddCoin = () => {
 
             const bannerRef = ref(logoBannerDb, `coins/${coinName}/banner`);
             uploadBytes(bannerRef, coinBanner);
+
+            setshowAlert(true);
     }
 
     return(
@@ -137,10 +141,10 @@ const AddCoin = () => {
                         <div className="addCoinOuter flex">
                     <div className="addCoinHead">
                         <h2 className="addCoinH2">Add your coin</h2>
-                        <p className="addCoinTxt">Fill this quick namem, and our team will contact you shortly</p>
+                        <p className="addCoinTxt">Fill this quick name, and our team will contact you shortly</p>
                     </div>
                     <div className="addCoinBody">
-                        <namem className="addCoinnamem flex" action="/">
+                        <form className="addCoinForm flex" action="/">
                             <label className="addCoinlabelTxt" name="coinName">Coin Name</label>
                             <input onChange={(e) => { setcoinName(e.target.value); console.log(coinName)}} className="addCoinInputField" type="text" id="coinName" placeholder="enter your coin name" />
 
@@ -267,10 +271,11 @@ const AddCoin = () => {
                             
                             <button onClick={onClickPost} className="submitCoin">Submit Coin Info</button>
 
-                        </namem>
+                        </form>
                     </div>
                 </div>
             <Footer />
+            { showAlert && <AddCoinAlert />}
         </div>
     );
 }

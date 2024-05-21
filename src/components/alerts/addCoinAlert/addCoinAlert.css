@@ -1,3 +1,9 @@
+.mainOuter{
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(10px);
+}
+
 .addCoinAlertOuter{
     gap: 8px;
     width: 680px;
